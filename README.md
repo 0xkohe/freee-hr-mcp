@@ -279,9 +279,6 @@ Invalid datetime string
 2. **datetime()によるタイムゾーン付き日時の検証エラー**
    - `fix-datetime.js`で自動的に`.datetime()`を削除して対応
 
-## ライセンス
-
-ISC
 
 ## サポート
 

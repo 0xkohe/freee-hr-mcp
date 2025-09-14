@@ -275,8 +275,8 @@ PutYearendAdjustmentHousingLoanDeductionBody,
 ApiV1EmployeeYearendAdjustmentControllerUpdateHousingLoanResponse,
 ApiV1EmployeeYearendAdjustmentControllerUpdateHousingLoanBody,
 DestroyYearendAdjustmentHousingLoanParams } from './http-schemas';
-import { customFetch } from './custom-fetch';
 
+import { customFetch } from './custom-fetch';
 export type getUsersMeResponse200 = {
   data: ApiV1UsersMeSerializer
   status: 200

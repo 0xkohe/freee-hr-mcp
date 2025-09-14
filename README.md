@@ -195,6 +195,39 @@ Claude Desktopで以下のような操作が可能です：
 
 ## 開発者向け情報
 
+### 最新のfreee HR APIに更新する手順
+
+freee APIが更新された場合、以下の手順で最新版に対応できます：
+
+#### 1. 一括更新（推奨）
+
+```bash
+# 最新のAPIスキーマ取得とコード生成を一括実行
+npm run update-and-generate
+
+# TypeScriptをビルド
+npm run build
+
+# 動作確認
+npm start
+```
+
+#### 2. 段階的な更新（デバッグ時）
+
+```bash
+# Step 1: 最新のOpenAPIスキーマを取得
+npm run update-schema
+
+# Step 2: コードを生成
+npm run generate
+
+# Step 3: ビルド
+npm run build
+
+# Step 4: 動作確認
+npm start
+```
+
 ### OpenAPIスキーマの更新
 
 freeeの最新APIスキーマを取得：

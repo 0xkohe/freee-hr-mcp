@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc --noCheck",
     "build-force": "tsc --noEmitOnError false --skipLibCheck --noImplicitAny false --noImplicitReturns false",
-    "generate": "orval && node scripts/post-generate.js",
+    "generate": "orval && node scripts/post-generate.js && node fix-datetime.js",
     "start": "node dist/server.js",
     "dev": "ts-node --transpile-only src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"

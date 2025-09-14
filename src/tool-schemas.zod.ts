@@ -1966,16 +1966,16 @@ export const getEmployeeWorkRecordResponseNoteMaxOne = 255;
 
 export const getEmployeeWorkRecordResponse = zod.union([zod.object({
   "break_records": zod.array(zod.object({
-  "clock_in_at": zod.string().datetime({}).optional().describe('開始時刻'),
-  "clock_out_at": zod.string().datetime({}).optional().describe('終了時刻')
+  "clock_in_at": zod.string().optional().describe('開始時刻'),
+  "clock_out_at": zod.string().optional().describe('終了時刻')
 })).optional().describe('休憩時間のリスト'),
   "work_record_segments": zod.array(zod.object({
-  "clock_in_at": zod.string().datetime({}).optional().describe('開始時刻'),
-  "clock_out_at": zod.string().datetime({}).optional().describe('終了時刻')
+  "clock_in_at": zod.string().optional().describe('開始時刻'),
+  "clock_out_at": zod.string().optional().describe('終了時刻')
 })).optional().describe('出退勤のリスト\n  - 登録されている全ての出退勤時間のリストを返します。'),
-  "clock_in_at": zod.string().datetime({}).nullish().describe('出勤時刻\n  - 出勤時刻を返します。出退勤が複数登録されている場合は、最初の出退勤の出勤時間を返します。'),
-  "clock_out_at": zod.string().datetime({}).nullish().describe('退勤時刻\n  - 退勤時刻を返します。出退勤が複数登録されている場合は、最後の出退勤の退勤時間を返します。'),
-  "date": zod.string().datetime({}).optional().describe('対象日付'),
+  "clock_in_at": zod.string().nullish().describe('出勤時刻\n  - 出勤時刻を返します。出退勤が複数登録されている場合は、最初の出退勤の出勤時間を返します。'),
+  "clock_out_at": zod.string().nullish().describe('退勤時刻\n  - 退勤時刻を返します。出退勤が複数登録されている場合は、最後の出退勤の退勤時間を返します。'),
+  "date": zod.string().optional().describe('対象日付'),
   "day_pattern": zod.enum(['normal_day', 'prescribed_holiday', 'legal_holiday']).optional().describe('勤務パターン\n- normal_day: 所定労働日\n- prescribed_holiday: 所定休日\n- legal_holiday: 法定休日'),
   "schedule_pattern": zod.enum(['', 'substitute_holiday_work', 'substitute_holiday', 'compensatory_holiday_work', 'compensatory_holiday', 'special_holiday']).optional().describe('スケジュールパターン\n- substitute_holiday_work: 振替出勤\n- substitute_holiday: 振替休日\n- compensatory_holiday_work: 代休出勤\n- compensatory_holiday: 代休\n- special_holiday: 特別休暇'),
   "early_leaving_mins": zod.number().optional().describe('早退分の時間（分単位）'),
@@ -1984,8 +1984,8 @@ export const getEmployeeWorkRecordResponse = zod.union([zod.object({
   "is_absence": zod.boolean().optional().describe('欠勤かどうか'),
   "is_editable": zod.boolean().optional().describe('勤怠データが編集可能かどうか'),
   "lateness_mins": zod.number().optional().describe('遅刻分の時間（分単位）'),
-  "normal_work_clock_in_at": zod.string().datetime({}).nullish().describe('所定労働開始時刻'),
-  "normal_work_clock_out_at": zod.string().datetime({}).nullish().describe('所定労働終了時刻'),
+  "normal_work_clock_in_at": zod.string().nullish().describe('所定労働開始時刻'),
+  "normal_work_clock_out_at": zod.string().nullish().describe('所定労働終了時刻'),
   "normal_work_mins": zod.number().optional().describe('所定労働時間'),
   "note": zod.string().max(getEmployeeWorkRecordResponseNoteMax).optional().describe('勤怠メモ'),
   "paid_holidays": zod.array(zod.object({
@@ -2008,16 +2008,16 @@ export const getEmployeeWorkRecordResponse = zod.union([zod.object({
   "total_latenight_overtime_except_normal_work_min": zod.number().optional().describe('深夜の所定外法定外労働時間（分）')
 }),zod.object({
   "break_records": zod.array(zod.object({
-  "clock_in_at": zod.string().datetime({}).optional().describe('開始時刻'),
-  "clock_out_at": zod.string().datetime({}).optional().describe('終了時刻')
+  "clock_in_at": zod.string().optional().describe('開始時刻'),
+  "clock_out_at": zod.string().optional().describe('終了時刻')
 })).optional().describe('休憩時間のリスト'),
   "work_record_segments": zod.array(zod.object({
-  "clock_in_at": zod.string().datetime({}).optional().describe('開始時刻'),
-  "clock_out_at": zod.string().datetime({}).optional().describe('終了時刻')
+  "clock_in_at": zod.string().optional().describe('開始時刻'),
+  "clock_out_at": zod.string().optional().describe('終了時刻')
 })).optional().describe('出退勤のリスト\n  - 登録されている全ての出退勤時間のリストを返します。'),
-  "clock_in_at": zod.string().datetime({}).nullish().describe('出勤時刻\n  - 出勤時刻を返します。出退勤が複数登録されている場合は、最初の出退勤の出勤時間を返します。'),
-  "clock_out_at": zod.string().datetime({}).nullish().describe('退勤時刻\n  - 退勤時刻を返します。出退勤が複数登録されている場合は、最後の出退勤の退勤時間を返します。'),
-  "date": zod.string().datetime({}).optional().describe('対象日付'),
+  "clock_in_at": zod.string().nullish().describe('出勤時刻\n  - 出勤時刻を返します。出退勤が複数登録されている場合は、最初の出退勤の出勤時間を返します。'),
+  "clock_out_at": zod.string().nullish().describe('退勤時刻\n  - 退勤時刻を返します。出退勤が複数登録されている場合は、最後の出退勤の退勤時間を返します。'),
+  "date": zod.string().optional().describe('対象日付'),
   "day_pattern": zod.enum(['normal_day', 'prescribed_holiday', 'legal_holiday']).optional().describe('勤務パターン\n- normal_day: 所定労働日\n- prescribed_holiday: 所定休日\n- legal_holiday: 法定休日'),
   "schedule_pattern": zod.enum(['', 'substitute_holiday_work', 'substitute_holiday', 'compensatory_holiday_work', 'compensatory_holiday', 'special_holiday']).optional().describe('スケジュールパターン\n- substitute_holiday_work: 振替出勤\n- substitute_holiday: 振替休日\n- compensatory_holiday_work: 代休出勤\n- compensatory_holiday: 代休\n- special_holiday: 特別休暇'),
   "early_leaving_mins": zod.number().optional().describe('早退分の時間（分単位）'),
@@ -2028,8 +2028,8 @@ export const getEmployeeWorkRecordResponse = zod.union([zod.object({
   "is_absence": zod.boolean().optional().describe('欠勤かどうか'),
   "is_editable": zod.boolean().optional().describe('勤怠データが編集可能かどうか'),
   "lateness_mins": zod.number().optional().describe('遅刻分の時間（分単位）'),
-  "normal_work_clock_in_at": zod.string().datetime({}).nullish().describe('所定労働開始時刻'),
-  "normal_work_clock_out_at": zod.string().datetime({}).nullish().describe('所定労働終了時刻'),
+  "normal_work_clock_in_at": zod.string().nullish().describe('所定労働開始時刻'),
+  "normal_work_clock_out_at": zod.string().nullish().describe('所定労働終了時刻'),
   "normal_work_mins": zod.number().optional().describe('所定労働時間'),
   "note": zod.string().max(getEmployeeWorkRecordResponseNoteMaxOne).optional().describe('勤怠メモ'),
   "paid_holiday": zod.number().optional().describe('[deprecated] この日に対する有給取得日数。半休の場合は0.5が入ります。時間休の場合はhourly_paid_holiday_minsを所定労働時間で割った値が入るため、実際の時間を確認するにはhourly_paid_holiday_minsを参照してください。※ 削除予定のため paid_holidays を参照してください'),
@@ -2122,21 +2122,21 @@ export const updateEmployeeWorkRecordBodyHourlySpecialHolidayMinsMaxOne = 1440;
 export const updateEmployeeWorkRecordBody = zod.union([zod.object({
   "company_id": zod.number().min(1).max(updateEmployeeWorkRecordBodyCompanyIdMax).describe('事業所ID（必須）'),
   "break_records": zod.array(zod.object({
-  "clock_in_at": zod.string().datetime({}).regex(updateEmployeeWorkRecordBodyBreakRecordsItemClockInAtRegExp).describe('開始時刻'),
-  "clock_out_at": zod.string().datetime({}).regex(updateEmployeeWorkRecordBodyBreakRecordsItemClockOutAtRegExp).describe('終了時刻')
+  "clock_in_at": zod.string().regex(updateEmployeeWorkRecordBodyBreakRecordsItemClockInAtRegExp).describe('開始時刻'),
+  "clock_out_at": zod.string().regex(updateEmployeeWorkRecordBodyBreakRecordsItemClockOutAtRegExp).describe('終了時刻')
 })).optional().describe('休憩時間のリスト'),
   "work_record_segments": zod.array(zod.object({
-  "clock_in_at": zod.string().datetime({}).regex(updateEmployeeWorkRecordBodyWorkRecordSegmentsItemClockInAtRegExp).describe('開始時刻'),
-  "clock_out_at": zod.string().datetime({}).regex(updateEmployeeWorkRecordBodyWorkRecordSegmentsItemClockOutAtRegExp).describe('終了時刻')
+  "clock_in_at": zod.string().regex(updateEmployeeWorkRecordBodyWorkRecordSegmentsItemClockInAtRegExp).describe('開始時刻'),
+  "clock_out_at": zod.string().regex(updateEmployeeWorkRecordBodyWorkRecordSegmentsItemClockOutAtRegExp).describe('終了時刻')
 })).optional().describe('出退勤のリスト'),
-  "clock_in_at": zod.string().datetime({}).regex(updateEmployeeWorkRecordBodyClockInAtRegExp).optional().describe('出勤時刻  \n\n複数の出退勤を指定できないため非推奨です。 `work_record_segments` を利用してください。'),
-  "clock_out_at": zod.string().datetime({}).regex(updateEmployeeWorkRecordBodyClockOutAtRegExp).optional().describe('退勤時刻\n\n複数の出退勤を指定できないため非推奨です。 `work_record_segments` を利用してください。'),
+  "clock_in_at": zod.string().regex(updateEmployeeWorkRecordBodyClockInAtRegExp).optional().describe('出勤時刻  \n\n複数の出退勤を指定できないため非推奨です。 `work_record_segments` を利用してください。'),
+  "clock_out_at": zod.string().regex(updateEmployeeWorkRecordBodyClockOutAtRegExp).optional().describe('退勤時刻\n\n複数の出退勤を指定できないため非推奨です。 `work_record_segments` を利用してください。'),
   "day_pattern": zod.enum(['normal_day', 'prescribed_holiday', 'legal_holiday']).optional().describe('勤務パターン（所定労働日: normal_day, 所定休日: prescribed_holiday, 法定休日: legal_holiday）\n\nprescribed_holiday、legal_holidayを指定すると、以下のパラメータについて、指定した値が反映されず無視されます。\n- early_leaving_mins\n- lateness_mins\n- paid_holiday'),
   "early_leaving_mins": zod.number().min(updateEmployeeWorkRecordBodyEarlyLeavingMinsMin).max(updateEmployeeWorkRecordBodyEarlyLeavingMinsMax).optional().describe('早退分の時間（分単位）'),
   "is_absence": zod.boolean().optional().describe('欠勤かどうか\n\nis_absenceにtrueを指定すると、以下のパラーメータについて、指定した値が反映されず無視されます。\n- break_records\n  - clock_in_at\n  - clock_out_at\n- clock_in_at\n- clock_out_at\n- early_leaving_mins\n- lateness_mins\n- normal_work_clock_in_at\n- normal_work_clock_out_at\n- normal_work_mins\n- paid_holidays\n- special_holiday\n- special_holiday_setting_id\n- half_special_holiday_mins\n- hourly_special_holiday_mins'),
   "lateness_mins": zod.number().min(updateEmployeeWorkRecordBodyLatenessMinsMin).max(updateEmployeeWorkRecordBodyLatenessMinsMax).optional().describe('遅刻分の時間（分単位）'),
-  "normal_work_clock_in_at": zod.string().datetime({}).regex(updateEmployeeWorkRecordBodyNormalWorkClockInAtRegExp).optional().describe('所定労働開始時刻。指定しない場合はデフォルト設定が使用されます。（デフォルト設定は従業員に設定した勤務賃金設定の出退勤時刻と労働時間の設定を参照して値が決まります。）'),
-  "normal_work_clock_out_at": zod.string().datetime({}).regex(updateEmployeeWorkRecordBodyNormalWorkClockOutAtRegExp).optional().describe('所定労働終了時刻。指定しない場合はデフォルト設定が使用されます。（デフォルト設定は従業員に設定した勤務賃金設定の出退勤時刻と労働時間の設定を参照して値が決まります。）'),
+  "normal_work_clock_in_at": zod.string().regex(updateEmployeeWorkRecordBodyNormalWorkClockInAtRegExp).optional().describe('所定労働開始時刻。指定しない場合はデフォルト設定が使用されます。（デフォルト設定は従業員に設定した勤務賃金設定の出退勤時刻と労働時間の設定を参照して値が決まります。）'),
+  "normal_work_clock_out_at": zod.string().regex(updateEmployeeWorkRecordBodyNormalWorkClockOutAtRegExp).optional().describe('所定労働終了時刻。指定しない場合はデフォルト設定が使用されます。（デフォルト設定は従業員に設定した勤務賃金設定の出退勤時刻と労働時間の設定を参照して値が決まります。）'),
   "normal_work_mins": zod.number().min(updateEmployeeWorkRecordBodyNormalWorkMinsMin).max(updateEmployeeWorkRecordBodyNormalWorkMinsMax).optional().describe('所定労働時間。指定しない場合はデフォルト設定が使用されます。（デフォルト設定は従業員に設定した勤務賃金設定の出退勤時刻と労働時間の設定を参照して値が決まります。）'),
   "note": zod.string().max(updateEmployeeWorkRecordBodyNoteMax).optional().describe('勤怠メモ'),
   "paid_holidays": zod.array(zod.object({
@@ -2152,21 +2152,21 @@ export const updateEmployeeWorkRecordBody = zod.union([zod.object({
 }),zod.object({
   "company_id": zod.number().min(1).max(updateEmployeeWorkRecordBodyCompanyIdMaxOne).optional().describe('事業所ID（必須）'),
   "break_records": zod.array(zod.object({
-  "clock_in_at": zod.string().datetime({}).regex(updateEmployeeWorkRecordBodyBreakRecordsItemClockInAtRegExpOne).describe('開始時刻'),
-  "clock_out_at": zod.string().datetime({}).regex(updateEmployeeWorkRecordBodyBreakRecordsItemClockOutAtRegExpOne).describe('終了時刻')
+  "clock_in_at": zod.string().regex(updateEmployeeWorkRecordBodyBreakRecordsItemClockInAtRegExpOne).describe('開始時刻'),
+  "clock_out_at": zod.string().regex(updateEmployeeWorkRecordBodyBreakRecordsItemClockOutAtRegExpOne).describe('終了時刻')
 })).optional().describe('休憩時間のリスト'),
   "work_record_segments": zod.array(zod.object({
-  "clock_in_at": zod.string().datetime({}).regex(updateEmployeeWorkRecordBodyWorkRecordSegmentsItemClockInAtRegExpOne).describe('開始時刻'),
-  "clock_out_at": zod.string().datetime({}).regex(updateEmployeeWorkRecordBodyWorkRecordSegmentsItemClockOutAtRegExpOne).describe('終了時刻')
+  "clock_in_at": zod.string().regex(updateEmployeeWorkRecordBodyWorkRecordSegmentsItemClockInAtRegExpOne).describe('開始時刻'),
+  "clock_out_at": zod.string().regex(updateEmployeeWorkRecordBodyWorkRecordSegmentsItemClockOutAtRegExpOne).describe('終了時刻')
 })).optional().describe('出退勤のリスト'),
-  "clock_in_at": zod.string().datetime({}).regex(updateEmployeeWorkRecordBodyClockInAtRegExpOne).optional().describe('出勤時刻  \n\n複数の出退勤を指定できないため非推奨です。 `work_record_segments` を利用してください。'),
-  "clock_out_at": zod.string().datetime({}).regex(updateEmployeeWorkRecordBodyClockOutAtRegExpOne).optional().describe('退勤時刻\n\n複数の出退勤を指定できないため非推奨です。 `work_record_segments` を利用してください。'),
+  "clock_in_at": zod.string().regex(updateEmployeeWorkRecordBodyClockInAtRegExpOne).optional().describe('出勤時刻  \n\n複数の出退勤を指定できないため非推奨です。 `work_record_segments` を利用してください。'),
+  "clock_out_at": zod.string().regex(updateEmployeeWorkRecordBodyClockOutAtRegExpOne).optional().describe('退勤時刻\n\n複数の出退勤を指定できないため非推奨です。 `work_record_segments` を利用してください。'),
   "day_pattern": zod.enum(['normal_day', 'prescribed_holiday', 'legal_holiday']).optional().describe('勤務パターン（所定労働日: normal_day, 所定休日: prescribed_holiday, 法定休日: legal_holiday）\n\nprescribed_holiday、legal_holidayを指定すると、以下のパラメータについて、指定した値が反映されず無視されます。\n- early_leaving_mins\n- lateness_mins\n- paid_holiday'),
   "early_leaving_mins": zod.number().min(updateEmployeeWorkRecordBodyEarlyLeavingMinsMinOne).max(updateEmployeeWorkRecordBodyEarlyLeavingMinsMaxOne).optional().describe('早退分の時間（分単位）'),
   "is_absence": zod.boolean().optional().describe('欠勤かどうか\n\nis_absenceにtrueを指定すると、以下のパラーメータについて、指定した値が反映されず無視されます。\n- break_records\n  - clock_in_at\n  - clock_out_at\n- clock_in_at\n- clock_out_at\n- early_leaving_mins\n- lateness_mins\n- normal_work_clock_in_at\n- normal_work_clock_out_at\n- normal_work_mins\n- paid_holiday\n- half_paid_holiday_mins\n- hourly_paid_holiday_mins\n- special_holiday\n- special_holiday_setting_id\n- half_special_holiday_mins\n- hourly_special_holiday_mins'),
   "lateness_mins": zod.number().min(updateEmployeeWorkRecordBodyLatenessMinsMinOne).max(updateEmployeeWorkRecordBodyLatenessMinsMaxOne).optional().describe('遅刻分の時間（分単位）'),
-  "normal_work_clock_in_at": zod.string().datetime({}).regex(updateEmployeeWorkRecordBodyNormalWorkClockInAtRegExpOne).optional().describe('所定労働開始時刻。指定しない場合はデフォルト設定が使用されます。（デフォルト設定は従業員に設定した勤務賃金設定の出退勤時刻と労働時間の設定を参照して値が決まります。）'),
-  "normal_work_clock_out_at": zod.string().datetime({}).regex(updateEmployeeWorkRecordBodyNormalWorkClockOutAtRegExpOne).optional().describe('所定労働終了時刻。指定しない場合はデフォルト設定が使用されます。（デフォルト設定は従業員に設定した勤務賃金設定の出退勤時刻と労働時間の設定を参照して値が決まります。）'),
+  "normal_work_clock_in_at": zod.string().regex(updateEmployeeWorkRecordBodyNormalWorkClockInAtRegExpOne).optional().describe('所定労働開始時刻。指定しない場合はデフォルト設定が使用されます。（デフォルト設定は従業員に設定した勤務賃金設定の出退勤時刻と労働時間の設定を参照して値が決まります。）'),
+  "normal_work_clock_out_at": zod.string().regex(updateEmployeeWorkRecordBodyNormalWorkClockOutAtRegExpOne).optional().describe('所定労働終了時刻。指定しない場合はデフォルト設定が使用されます。（デフォルト設定は従業員に設定した勤務賃金設定の出退勤時刻と労働時間の設定を参照して値が決まります。）'),
   "normal_work_mins": zod.number().min(updateEmployeeWorkRecordBodyNormalWorkMinsMinOne).max(updateEmployeeWorkRecordBodyNormalWorkMinsMaxOne).optional().describe('所定労働時間。指定しない場合はデフォルト設定が使用されます。（デフォルト設定は従業員に設定した勤務賃金設定の出退勤時刻と労働時間の設定を参照して値が決まります。）'),
   "note": zod.string().max(updateEmployeeWorkRecordBodyNoteMaxOne).optional().describe('勤怠メモ'),
   "paid_holiday": zod.union([zod.literal(0),zod.literal(1)]).optional().describe('[deprecated] この日の有休取得日数。1日単位で指定します。 ※ paid_holidays を指定する場合にはこちらの値は参照されません ※ 削除予定のため paid_holidays->type を指定してください'),
@@ -2185,16 +2185,16 @@ export const updateEmployeeWorkRecordResponseNoteMax = 255;
 
 export const updateEmployeeWorkRecordResponse = zod.object({
   "break_records": zod.array(zod.object({
-  "clock_in_at": zod.string().datetime({}).optional().describe('開始時刻'),
-  "clock_out_at": zod.string().datetime({}).optional().describe('終了時刻')
+  "clock_in_at": zod.string().optional().describe('開始時刻'),
+  "clock_out_at": zod.string().optional().describe('終了時刻')
 })).optional().describe('休憩時間のリスト'),
   "work_record_segments": zod.array(zod.object({
-  "clock_in_at": zod.string().datetime({}).optional().describe('開始時刻'),
-  "clock_out_at": zod.string().datetime({}).optional().describe('終了時刻')
+  "clock_in_at": zod.string().optional().describe('開始時刻'),
+  "clock_out_at": zod.string().optional().describe('終了時刻')
 })).optional().describe('出退勤のリスト\n  - 登録されている全ての出退勤時間のリストを返します。'),
-  "clock_in_at": zod.string().datetime({}).nullish().describe('出勤時刻\n  - 出勤時刻を返します。出退勤が複数登録されている場合は、最初の出退勤の出勤時間を返します。'),
-  "clock_out_at": zod.string().datetime({}).nullish().describe('退勤時刻\n  - 退勤時刻を返します。出退勤が複数登録されている場合は、最後の出退勤の退勤時間を返します。'),
-  "date": zod.string().datetime({}).optional().describe('対象日付'),
+  "clock_in_at": zod.string().nullish().describe('出勤時刻\n  - 出勤時刻を返します。出退勤が複数登録されている場合は、最初の出退勤の出勤時間を返します。'),
+  "clock_out_at": zod.string().nullish().describe('退勤時刻\n  - 退勤時刻を返します。出退勤が複数登録されている場合は、最後の出退勤の退勤時間を返します。'),
+  "date": zod.string().optional().describe('対象日付'),
   "day_pattern": zod.enum(['normal_day', 'prescribed_holiday', 'legal_holiday']).optional().describe('勤務パターン\n- normal_day: 所定労働日\n- prescribed_holiday: 所定休日\n- legal_holiday: 法定休日'),
   "schedule_pattern": zod.enum(['', 'substitute_holiday_work', 'substitute_holiday', 'compensatory_holiday_work', 'compensatory_holiday', 'special_holiday']).optional().describe('スケジュールパターン\n- substitute_holiday_work: 振替出勤\n- substitute_holiday: 振替休日\n- compensatory_holiday_work: 代休出勤\n- compensatory_holiday: 代休\n- special_holiday: 特別休暇'),
   "early_leaving_mins": zod.number().optional().describe('早退分の時間（分単位）'),
@@ -2203,8 +2203,8 @@ export const updateEmployeeWorkRecordResponse = zod.object({
   "is_absence": zod.boolean().optional().describe('欠勤かどうか'),
   "is_editable": zod.boolean().optional().describe('勤怠データが編集可能かどうか'),
   "lateness_mins": zod.number().optional().describe('遅刻分の時間（分単位）'),
-  "normal_work_clock_in_at": zod.string().datetime({}).nullish().describe('所定労働開始時刻'),
-  "normal_work_clock_out_at": zod.string().datetime({}).nullish().describe('所定労働終了時刻'),
+  "normal_work_clock_in_at": zod.string().nullish().describe('所定労働開始時刻'),
+  "normal_work_clock_out_at": zod.string().nullish().describe('所定労働終了時刻'),
   "normal_work_mins": zod.number().optional().describe('所定労働時間'),
   "note": zod.string().max(updateEmployeeWorkRecordResponseNoteMax).optional().describe('勤怠メモ'),
   "paid_holidays": zod.array(zod.object({
@@ -2309,16 +2309,16 @@ export const getEmployeeWorkRecordSummaryResponse = zod.object({
 })).optional().describe('複数時給の労働時間の内訳（複数時給を設定している従業員のみ）'),
   "work_records": zod.array(zod.union([zod.object({
   "break_records": zod.array(zod.object({
-  "clock_in_at": zod.string().datetime({}).optional().describe('開始時刻'),
-  "clock_out_at": zod.string().datetime({}).optional().describe('終了時刻')
+  "clock_in_at": zod.string().optional().describe('開始時刻'),
+  "clock_out_at": zod.string().optional().describe('終了時刻')
 })).optional().describe('休憩時間のリスト'),
   "work_record_segments": zod.array(zod.object({
-  "clock_in_at": zod.string().datetime({}).optional().describe('開始時刻'),
-  "clock_out_at": zod.string().datetime({}).optional().describe('終了時刻')
+  "clock_in_at": zod.string().optional().describe('開始時刻'),
+  "clock_out_at": zod.string().optional().describe('終了時刻')
 })).optional().describe('出退勤のリスト\n  - 登録されている全ての出退勤時間のリストを返します。'),
-  "clock_in_at": zod.string().datetime({}).nullish().describe('出勤時刻\n  - 出勤時刻を返します。出退勤が複数登録されている場合は、最初の出退勤の出勤時間を返します。'),
-  "clock_out_at": zod.string().datetime({}).nullish().describe('退勤時刻\n  - 退勤時刻を返します。出退勤が複数登録されている場合は、最後の出退勤の退勤時間を返します。'),
-  "date": zod.string().datetime({}).optional().describe('対象日付'),
+  "clock_in_at": zod.string().nullish().describe('出勤時刻\n  - 出勤時刻を返します。出退勤が複数登録されている場合は、最初の出退勤の出勤時間を返します。'),
+  "clock_out_at": zod.string().nullish().describe('退勤時刻\n  - 退勤時刻を返します。出退勤が複数登録されている場合は、最後の出退勤の退勤時間を返します。'),
+  "date": zod.string().optional().describe('対象日付'),
   "day_pattern": zod.enum(['normal_day', 'prescribed_holiday', 'legal_holiday']).optional().describe('勤務パターン\n- normal_day: 所定労働日\n- prescribed_holiday: 所定休日\n- legal_holiday: 法定休日'),
   "schedule_pattern": zod.enum(['', 'substitute_holiday_work', 'substitute_holiday', 'compensatory_holiday_work', 'compensatory_holiday', 'special_holiday']).optional().describe('スケジュールパターン\n- substitute_holiday_work: 振替出勤\n- substitute_holiday: 振替休日\n- compensatory_holiday_work: 代休出勤\n- compensatory_holiday: 代休\n- special_holiday: 特別休暇'),
   "early_leaving_mins": zod.number().optional().describe('早退分の時間（分単位）'),
@@ -2327,8 +2327,8 @@ export const getEmployeeWorkRecordSummaryResponse = zod.object({
   "is_absence": zod.boolean().optional().describe('欠勤かどうか'),
   "is_editable": zod.boolean().optional().describe('勤怠データが編集可能かどうか'),
   "lateness_mins": zod.number().optional().describe('遅刻分の時間（分単位）'),
-  "normal_work_clock_in_at": zod.string().datetime({}).nullish().describe('所定労働開始時刻'),
-  "normal_work_clock_out_at": zod.string().datetime({}).nullish().describe('所定労働終了時刻'),
+  "normal_work_clock_in_at": zod.string().nullish().describe('所定労働開始時刻'),
+  "normal_work_clock_out_at": zod.string().nullish().describe('所定労働終了時刻'),
   "normal_work_mins": zod.number().optional().describe('所定労働時間'),
   "note": zod.string().max(getEmployeeWorkRecordSummaryResponseWorkRecordsItemNoteMax).optional().describe('勤怠メモ'),
   "paid_holidays": zod.array(zod.object({
@@ -2351,16 +2351,16 @@ export const getEmployeeWorkRecordSummaryResponse = zod.object({
   "total_latenight_overtime_except_normal_work_min": zod.number().optional().describe('深夜の所定外法定外労働時間（分）')
 }),zod.object({
   "break_records": zod.array(zod.object({
-  "clock_in_at": zod.string().datetime({}).optional().describe('開始時刻'),
-  "clock_out_at": zod.string().datetime({}).optional().describe('終了時刻')
+  "clock_in_at": zod.string().optional().describe('開始時刻'),
+  "clock_out_at": zod.string().optional().describe('終了時刻')
 })).optional().describe('休憩時間のリスト'),
   "work_record_segments": zod.array(zod.object({
-  "clock_in_at": zod.string().datetime({}).optional().describe('開始時刻'),
-  "clock_out_at": zod.string().datetime({}).optional().describe('終了時刻')
+  "clock_in_at": zod.string().optional().describe('開始時刻'),
+  "clock_out_at": zod.string().optional().describe('終了時刻')
 })).optional().describe('出退勤のリスト\n  - 登録されている全ての出退勤時間のリストを返します。'),
-  "clock_in_at": zod.string().datetime({}).nullish().describe('出勤時刻\n  - 出勤時刻を返します。出退勤が複数登録されている場合は、最初の出退勤の出勤時間を返します。'),
-  "clock_out_at": zod.string().datetime({}).nullish().describe('退勤時刻\n  - 退勤時刻を返します。出退勤が複数登録されている場合は、最後の出退勤の退勤時間を返します。'),
-  "date": zod.string().datetime({}).optional().describe('対象日付'),
+  "clock_in_at": zod.string().nullish().describe('出勤時刻\n  - 出勤時刻を返します。出退勤が複数登録されている場合は、最初の出退勤の出勤時間を返します。'),
+  "clock_out_at": zod.string().nullish().describe('退勤時刻\n  - 退勤時刻を返します。出退勤が複数登録されている場合は、最後の出退勤の退勤時間を返します。'),
+  "date": zod.string().optional().describe('対象日付'),
   "day_pattern": zod.enum(['normal_day', 'prescribed_holiday', 'legal_holiday']).optional().describe('勤務パターン\n- normal_day: 所定労働日\n- prescribed_holiday: 所定休日\n- legal_holiday: 法定休日'),
   "schedule_pattern": zod.enum(['', 'substitute_holiday_work', 'substitute_holiday', 'compensatory_holiday_work', 'compensatory_holiday', 'special_holiday']).optional().describe('スケジュールパターン\n- substitute_holiday_work: 振替出勤\n- substitute_holiday: 振替休日\n- compensatory_holiday_work: 代休出勤\n- compensatory_holiday: 代休\n- special_holiday: 特別休暇'),
   "early_leaving_mins": zod.number().optional().describe('早退分の時間（分単位）'),
@@ -2371,8 +2371,8 @@ export const getEmployeeWorkRecordSummaryResponse = zod.object({
   "is_absence": zod.boolean().optional().describe('欠勤かどうか'),
   "is_editable": zod.boolean().optional().describe('勤怠データが編集可能かどうか'),
   "lateness_mins": zod.number().optional().describe('遅刻分の時間（分単位）'),
-  "normal_work_clock_in_at": zod.string().datetime({}).nullish().describe('所定労働開始時刻'),
-  "normal_work_clock_out_at": zod.string().datetime({}).nullish().describe('所定労働終了時刻'),
+  "normal_work_clock_in_at": zod.string().nullish().describe('所定労働開始時刻'),
+  "normal_work_clock_out_at": zod.string().nullish().describe('所定労働終了時刻'),
   "normal_work_mins": zod.number().optional().describe('所定労働時間'),
   "note": zod.string().max(getEmployeeWorkRecordSummaryResponseWorkRecordsItemNoteMaxOne).optional().describe('勤怠メモ'),
   "paid_holiday": zod.number().optional().describe('[deprecated] この日に対する有給取得日数。半休の場合は0.5が入ります。時間休の場合はhourly_paid_holiday_minsを所定労働時間で割った値が入るため、実際の時間を確認するにはhourly_paid_holiday_minsを参照してください。※ 削除予定のため paid_holidays を参照してください'),
@@ -2543,16 +2543,16 @@ export const updateEmployeeWorkRecordSummaryResponse = zod.object({
 })).optional().describe('複数時給の労働時間の内訳（複数時給を設定している従業員のみ）'),
   "work_records": zod.array(zod.union([zod.object({
   "break_records": zod.array(zod.object({
-  "clock_in_at": zod.string().datetime({}).optional().describe('開始時刻'),
-  "clock_out_at": zod.string().datetime({}).optional().describe('終了時刻')
+  "clock_in_at": zod.string().optional().describe('開始時刻'),
+  "clock_out_at": zod.string().optional().describe('終了時刻')
 })).optional().describe('休憩時間のリスト'),
   "work_record_segments": zod.array(zod.object({
-  "clock_in_at": zod.string().datetime({}).optional().describe('開始時刻'),
-  "clock_out_at": zod.string().datetime({}).optional().describe('終了時刻')
+  "clock_in_at": zod.string().optional().describe('開始時刻'),
+  "clock_out_at": zod.string().optional().describe('終了時刻')
 })).optional().describe('出退勤のリスト\n  - 登録されている全ての出退勤時間のリストを返します。'),
-  "clock_in_at": zod.string().datetime({}).nullish().describe('出勤時刻\n  - 出勤時刻を返します。出退勤が複数登録されている場合は、最初の出退勤の出勤時間を返します。'),
-  "clock_out_at": zod.string().datetime({}).nullish().describe('退勤時刻\n  - 退勤時刻を返します。出退勤が複数登録されている場合は、最後の出退勤の退勤時間を返します。'),
-  "date": zod.string().datetime({}).optional().describe('対象日付'),
+  "clock_in_at": zod.string().nullish().describe('出勤時刻\n  - 出勤時刻を返します。出退勤が複数登録されている場合は、最初の出退勤の出勤時間を返します。'),
+  "clock_out_at": zod.string().nullish().describe('退勤時刻\n  - 退勤時刻を返します。出退勤が複数登録されている場合は、最後の出退勤の退勤時間を返します。'),
+  "date": zod.string().optional().describe('対象日付'),
   "day_pattern": zod.enum(['normal_day', 'prescribed_holiday', 'legal_holiday']).optional().describe('勤務パターン\n- normal_day: 所定労働日\n- prescribed_holiday: 所定休日\n- legal_holiday: 法定休日'),
   "schedule_pattern": zod.enum(['', 'substitute_holiday_work', 'substitute_holiday', 'compensatory_holiday_work', 'compensatory_holiday', 'special_holiday']).optional().describe('スケジュールパターン\n- substitute_holiday_work: 振替出勤\n- substitute_holiday: 振替休日\n- compensatory_holiday_work: 代休出勤\n- compensatory_holiday: 代休\n- special_holiday: 特別休暇'),
   "early_leaving_mins": zod.number().optional().describe('早退分の時間（分単位）'),
@@ -2561,8 +2561,8 @@ export const updateEmployeeWorkRecordSummaryResponse = zod.object({
   "is_absence": zod.boolean().optional().describe('欠勤かどうか'),
   "is_editable": zod.boolean().optional().describe('勤怠データが編集可能かどうか'),
   "lateness_mins": zod.number().optional().describe('遅刻分の時間（分単位）'),
-  "normal_work_clock_in_at": zod.string().datetime({}).nullish().describe('所定労働開始時刻'),
-  "normal_work_clock_out_at": zod.string().datetime({}).nullish().describe('所定労働終了時刻'),
+  "normal_work_clock_in_at": zod.string().nullish().describe('所定労働開始時刻'),
+  "normal_work_clock_out_at": zod.string().nullish().describe('所定労働終了時刻'),
   "normal_work_mins": zod.number().optional().describe('所定労働時間'),
   "note": zod.string().max(updateEmployeeWorkRecordSummaryResponseWorkRecordsItemNoteMax).optional().describe('勤怠メモ'),
   "paid_holidays": zod.array(zod.object({
@@ -2585,16 +2585,16 @@ export const updateEmployeeWorkRecordSummaryResponse = zod.object({
   "total_latenight_overtime_except_normal_work_min": zod.number().optional().describe('深夜の所定外法定外労働時間（分）')
 }),zod.object({
   "break_records": zod.array(zod.object({
-  "clock_in_at": zod.string().datetime({}).optional().describe('開始時刻'),
-  "clock_out_at": zod.string().datetime({}).optional().describe('終了時刻')
+  "clock_in_at": zod.string().optional().describe('開始時刻'),
+  "clock_out_at": zod.string().optional().describe('終了時刻')
 })).optional().describe('休憩時間のリスト'),
   "work_record_segments": zod.array(zod.object({
-  "clock_in_at": zod.string().datetime({}).optional().describe('開始時刻'),
-  "clock_out_at": zod.string().datetime({}).optional().describe('終了時刻')
+  "clock_in_at": zod.string().optional().describe('開始時刻'),
+  "clock_out_at": zod.string().optional().describe('終了時刻')
 })).optional().describe('出退勤のリスト\n  - 登録されている全ての出退勤時間のリストを返します。'),
-  "clock_in_at": zod.string().datetime({}).nullish().describe('出勤時刻\n  - 出勤時刻を返します。出退勤が複数登録されている場合は、最初の出退勤の出勤時間を返します。'),
-  "clock_out_at": zod.string().datetime({}).nullish().describe('退勤時刻\n  - 退勤時刻を返します。出退勤が複数登録されている場合は、最後の出退勤の退勤時間を返します。'),
-  "date": zod.string().datetime({}).optional().describe('対象日付'),
+  "clock_in_at": zod.string().nullish().describe('出勤時刻\n  - 出勤時刻を返します。出退勤が複数登録されている場合は、最初の出退勤の出勤時間を返します。'),
+  "clock_out_at": zod.string().nullish().describe('退勤時刻\n  - 退勤時刻を返します。出退勤が複数登録されている場合は、最後の出退勤の退勤時間を返します。'),
+  "date": zod.string().optional().describe('対象日付'),
   "day_pattern": zod.enum(['normal_day', 'prescribed_holiday', 'legal_holiday']).optional().describe('勤務パターン\n- normal_day: 所定労働日\n- prescribed_holiday: 所定休日\n- legal_holiday: 法定休日'),
   "schedule_pattern": zod.enum(['', 'substitute_holiday_work', 'substitute_holiday', 'compensatory_holiday_work', 'compensatory_holiday', 'special_holiday']).optional().describe('スケジュールパターン\n- substitute_holiday_work: 振替出勤\n- substitute_holiday: 振替休日\n- compensatory_holiday_work: 代休出勤\n- compensatory_holiday: 代休\n- special_holiday: 特別休暇'),
   "early_leaving_mins": zod.number().optional().describe('早退分の時間（分単位）'),
@@ -2605,8 +2605,8 @@ export const updateEmployeeWorkRecordSummaryResponse = zod.object({
   "is_absence": zod.boolean().optional().describe('欠勤かどうか'),
   "is_editable": zod.boolean().optional().describe('勤怠データが編集可能かどうか'),
   "lateness_mins": zod.number().optional().describe('遅刻分の時間（分単位）'),
-  "normal_work_clock_in_at": zod.string().datetime({}).nullish().describe('所定労働開始時刻'),
-  "normal_work_clock_out_at": zod.string().datetime({}).nullish().describe('所定労働終了時刻'),
+  "normal_work_clock_in_at": zod.string().nullish().describe('所定労働開始時刻'),
+  "normal_work_clock_out_at": zod.string().nullish().describe('所定労働終了時刻'),
   "normal_work_mins": zod.number().optional().describe('所定労働時間'),
   "note": zod.string().max(updateEmployeeWorkRecordSummaryResponseWorkRecordsItemNoteMaxOne).optional().describe('勤怠メモ'),
   "paid_holiday": zod.number().optional().describe('[deprecated] この日に対する有給取得日数。半休の場合は0.5が入ります。時間休の場合はhourly_paid_holiday_minsを所定労働時間で割った値が入るため、実際の時間を確認するにはhourly_paid_holiday_minsを参照してください。※ 削除予定のため paid_holidays を参照してください'),
@@ -2662,8 +2662,8 @@ export const getEmployeeTimeClocksResponseItem = zod.object({
   "id": zod.number().min(1).max(getEmployeeTimeClocksResponseIdMax).optional().describe('打刻ID'),
   "date": zod.string().date().optional().describe('打刻日'),
   "type": zod.enum(['clock_in', 'break_begin', 'break_end', 'clock_out']).optional().describe('打刻種別(clock_in:出勤, break_begin:休憩開始, break_end:休憩終了, clock_out:退勤)'),
-  "datetime": zod.string().datetime({}).optional().describe('打刻時刻'),
-  "original_datetime": zod.string().datetime({}).optional().describe('オリジナルの打刻時間'),
+  "datetime": zod.string().optional().describe('打刻時刻'),
+  "original_datetime": zod.string().optional().describe('オリジナルの打刻時間'),
   "note": zod.string().max(getEmployeeTimeClocksResponseNoteMax).optional().describe('打刻メモ')
 })
 export const getEmployeeTimeClocksResponse = zod.array(getEmployeeTimeClocksResponseItem)
@@ -2685,7 +2685,7 @@ export const createEmployeeTimeClockBody = zod.object({
   "company_id": zod.number().min(1).max(createEmployeeTimeClockBodyCompanyIdMax).describe('(required)'),
   "type": zod.enum(['clock_in', 'break_begin', 'break_end', 'clock_out']).describe('打刻種別（required）[clock_in:出勤, break_begin:休憩開始, break_end:休憩終了, clock_out:退勤]の何れか'),
   "base_date": zod.string().date().regex(createEmployeeTimeClockBodyBaseDateRegExp).optional().describe('打刻日。打刻が日をまたぐ場合に、前日の日付を指定します。(YYYY-MM-DD)(例:2018-07-31)'),
-  "datetime": zod.string().datetime({}).regex(createEmployeeTimeClockBodyDatetimeRegExp).optional().describe('打刻時刻。(YYYY-MM-DD&nbsp;HH:MM:SS)(例:2018-07-31&nbsp;08:00:00)')
+  "datetime": zod.string().regex(createEmployeeTimeClockBodyDatetimeRegExp).optional().describe('打刻時刻。(YYYY-MM-DD&nbsp;HH:MM:SS)(例:2018-07-31&nbsp;08:00:00)')
 })
 
 
@@ -2714,8 +2714,8 @@ export const getEmployeeTimeClockResponse = zod.object({
   "id": zod.number().min(1).max(getEmployeeTimeClockResponseEmployeeTimeClockIdMax).optional().describe('打刻ID'),
   "date": zod.string().date().optional().describe('打刻日'),
   "type": zod.enum(['clock_in', 'break_begin', 'break_end', 'clock_out']).optional().describe('打刻種別(clock_in:出勤, break_begin:休憩開始, break_end:休憩終了, clock_out:退勤)'),
-  "datetime": zod.string().datetime({}).optional().describe('打刻時刻'),
-  "original_datetime": zod.string().datetime({}).optional().describe('オリジナルの打刻時間'),
+  "datetime": zod.string().optional().describe('打刻時刻'),
+  "original_datetime": zod.string().optional().describe('オリジナルの打刻時間'),
   "note": zod.string().max(getEmployeeTimeClockResponseEmployeeTimeClockNoteMax).optional().describe('打刻メモ')
 }).optional()
 })
@@ -3061,7 +3061,7 @@ export const getSalariesEmployeePayrollStatementsResponse = zod.object({
   "variable_pay_closing_date": zod.string().date().optional().describe('給与計算締日（変動給）'),
   "fixed": zod.boolean().optional().describe('給与明細が確定されているかどうか'),
   "calc_status": zod.string().optional().describe('計算状況ステータス calculating: 計算中, calculated: 計算完了, overwritten: 直接編集, imported: インポート, error: エラー'),
-  "calculated_at": zod.string().datetime({}).nullish().describe('計算状況ステータスの更新日'),
+  "calculated_at": zod.string().nullish().describe('計算状況ステータスの更新日'),
   "pay_calc_type": zod.enum(['monthly', 'daily', 'hourly', '']).optional().describe('給与形態 monthly: 月給, daily: 日給, hourly: 時給, (空文字列): 計算中'),
   "board_member_remuneration_amount": zod.string().nullish().describe('役員報酬'),
   "basic_pay_amount": zod.string().nullish().describe('基本給'),
@@ -3146,7 +3146,7 @@ export const getSalariesEmployeePayrollStatementResponse = zod.object({
   "variable_pay_closing_date": zod.string().date().optional().describe('給与計算締日（変動給）'),
   "fixed": zod.boolean().optional().describe('給与明細が確定されているかどうか'),
   "calc_status": zod.string().optional().describe('計算状況ステータス calculating: 計算中, calculated: 計算完了, overwritten: 直接編集, imported: インポート, error: エラー'),
-  "calculated_at": zod.string().datetime({}).nullish().describe('計算状況ステータスの更新日'),
+  "calculated_at": zod.string().nullish().describe('計算状況ステータスの更新日'),
   "pay_calc_type": zod.enum(['monthly', 'daily', 'hourly', '']).optional().describe('給与形態 monthly: 月給, daily: 日給, hourly: 時給, (空文字列): 計算中'),
   "board_member_remuneration_amount": zod.string().nullish().describe('役員報酬'),
   "basic_pay_amount": zod.string().nullish().describe('基本給'),
@@ -3226,7 +3226,7 @@ export const getBonusesEmployeePayrollStatementsResponse = zod.object({
   "pay_date": zod.string().date().optional().describe('支払日'),
   "fixed": zod.boolean().optional().describe('賞与明細が確定されているかどうか'),
   "calc_status": zod.string().optional().describe('計算状況ステータス calculating: 計算中, calculated: 計算完了, error: エラー'),
-  "calculated_at": zod.string().datetime({}).nullish().describe('計算状況ステータスの更新日'),
+  "calculated_at": zod.string().nullish().describe('計算状況ステータスの更新日'),
   "bonus_amount": zod.string().nullish().describe('賞与額'),
   "total_allowance_amount": zod.string().nullish().describe('手当額合計'),
   "total_deduction_amount": zod.string().nullish().describe('控除額合計'),
@@ -3279,7 +3279,7 @@ export const getBonusesEmployeePayrollStatementResponse = zod.object({
   "pay_date": zod.string().date().optional().describe('支払日'),
   "fixed": zod.boolean().optional().describe('賞与明細が確定されているかどうか'),
   "calc_status": zod.string().optional().describe('計算状況ステータス calculating: 計算中, calculated: 計算完了, error: エラー'),
-  "calculated_at": zod.string().datetime({}).nullish().describe('計算状況ステータスの更新日'),
+  "calculated_at": zod.string().nullish().describe('計算状況ステータスの更新日'),
   "bonus_amount": zod.string().nullish().describe('賞与額'),
   "total_allowance_amount": zod.string().nullish().describe('手当額合計'),
   "total_deduction_amount": zod.string().nullish().describe('控除額合計'),
@@ -3666,7 +3666,7 @@ export const getApprovalRequestsMonthlyAttendanceResponse = zod.object({
   "approval_flow_logs": zod.array(zod.object({
   "user_id": zod.number().min(getApprovalRequestsMonthlyAttendanceResponseMonthlyAttendanceApprovalFlowLogsItemUserIdMin).max(getApprovalRequestsMonthlyAttendanceResponseMonthlyAttendanceApprovalFlowLogsItemUserIdMax).optional().describe('申請操作をしたユーザーのユーザーID'),
   "action": zod.enum(['apply', 'approve', 'cancel', 'feedback']).optional().describe('申請操作。（apply:申請する、approve:承認、cancel:取り消し、feedback:差戻し）'),
-  "update_at": zod.string().datetime({}).optional().describe('申請操作をした日付時間')
+  "update_at": zod.string().optional().describe('申請操作をした日付時間')
 })).describe('承認履歴'),
   "current_step_id": zod.number().min(1).max(getApprovalRequestsMonthlyAttendanceResponseMonthlyAttendanceCurrentStepIdMax).nullish().describe('現在承認ステップID<br>\n申請を差戻した場合、nullになります。'),
   "current_round": zod.number().min(getApprovalRequestsMonthlyAttendanceResponseMonthlyAttendanceCurrentRoundMin).max(getApprovalRequestsMonthlyAttendanceResponseMonthlyAttendanceCurrentRoundMax).describe('現在のround。差戻し等により申請がstepの最初からやり直しになるとroundの値が増えます。')
@@ -3725,7 +3725,7 @@ export const updateApprovalRequestsMonthlyAttendanceResponse = zod.object({
   "approval_flow_logs": zod.array(zod.object({
   "user_id": zod.number().min(updateApprovalRequestsMonthlyAttendanceResponseMonthlyAttendanceApprovalFlowLogsItemUserIdMin).max(updateApprovalRequestsMonthlyAttendanceResponseMonthlyAttendanceApprovalFlowLogsItemUserIdMax).optional().describe('申請操作をしたユーザーのユーザーID'),
   "action": zod.enum(['apply', 'approve', 'cancel', 'feedback']).optional().describe('申請操作。（apply:申請する、approve:承認、cancel:取り消し、feedback:差戻し）'),
-  "update_at": zod.string().datetime({}).optional().describe('申請操作をした日付時間')
+  "update_at": zod.string().optional().describe('申請操作をした日付時間')
 })).describe('承認履歴'),
   "current_step_id": zod.number().min(1).max(updateApprovalRequestsMonthlyAttendanceResponseMonthlyAttendanceCurrentStepIdMax).nullish().describe('現在承認ステップID<br>\n申請を差戻した場合、nullになります。'),
   "current_round": zod.number().min(updateApprovalRequestsMonthlyAttendanceResponseMonthlyAttendanceCurrentRoundMin).max(updateApprovalRequestsMonthlyAttendanceResponseMonthlyAttendanceCurrentRoundMax).describe('現在のround。差戻し等により申請がstepの最初からやり直しになるとroundの値が増えます。')
@@ -3947,7 +3947,7 @@ export const getApprovalRequestsWorkTimeResponse = zod.object({
   "approval_flow_logs": zod.array(zod.object({
   "user_id": zod.number().min(getApprovalRequestsWorkTimeResponseWorkTimeApprovalFlowLogsItemUserIdMin).max(getApprovalRequestsWorkTimeResponseWorkTimeApprovalFlowLogsItemUserIdMax).optional().describe('申請操作をしたユーザーのユーザーID'),
   "action": zod.enum(['apply', 'approve', 'cancel', 'feedback']).optional().describe('申請操作。（apply:申請する、approve:承認、cancel:取り消し、feedback:差戻し）'),
-  "update_at": zod.string().datetime({}).optional().describe('申請操作をした日付時間')
+  "update_at": zod.string().optional().describe('申請操作をした日付時間')
 })).describe('承認履歴'),
   "current_step_id": zod.number().min(1).max(getApprovalRequestsWorkTimeResponseWorkTimeCurrentStepIdMax).nullish().describe('現在承認ステップID<br>\n申請を差戻した場合、nullになります。'),
   "current_round": zod.number().min(getApprovalRequestsWorkTimeResponseWorkTimeCurrentRoundMin).max(getApprovalRequestsWorkTimeResponseWorkTimeCurrentRoundMax).describe('現在のround。差戻し等により申請がstepの最初からやり直しになるとroundの値が増えます。')
@@ -4046,7 +4046,7 @@ export const updateApprovalRequestsWorkTimeResponse = zod.object({
   "approval_flow_logs": zod.array(zod.object({
   "user_id": zod.number().min(updateApprovalRequestsWorkTimeResponseWorkTimeApprovalFlowLogsItemUserIdMin).max(updateApprovalRequestsWorkTimeResponseWorkTimeApprovalFlowLogsItemUserIdMax).optional().describe('申請操作をしたユーザーのユーザーID'),
   "action": zod.enum(['apply', 'approve', 'cancel', 'feedback']).optional().describe('申請操作。（apply:申請する、approve:承認、cancel:取り消し、feedback:差戻し）'),
-  "update_at": zod.string().datetime({}).optional().describe('申請操作をした日付時間')
+  "update_at": zod.string().optional().describe('申請操作をした日付時間')
 })).describe('承認履歴'),
   "current_step_id": zod.number().min(1).max(updateApprovalRequestsWorkTimeResponseWorkTimeCurrentStepIdMax).nullish().describe('現在承認ステップID<br>\n申請を差戻した場合、nullになります。'),
   "current_round": zod.number().min(updateApprovalRequestsWorkTimeResponseWorkTimeCurrentRoundMin).max(updateApprovalRequestsWorkTimeResponseWorkTimeCurrentRoundMax).describe('現在のround。差戻し等により申請がstepの最初からやり直しになるとroundの値が増えます。')
@@ -4297,7 +4297,7 @@ export const getApprovalRequestsPaidHolidayResponse = zod.object({
   "approval_flow_logs": zod.array(zod.object({
   "user_id": zod.number().min(getApprovalRequestsPaidHolidayResponsePaidHolidayApprovalFlowLogsItemUserIdMin).max(getApprovalRequestsPaidHolidayResponsePaidHolidayApprovalFlowLogsItemUserIdMax).optional().describe('申請操作をしたユーザーのユーザーID'),
   "action": zod.enum(['apply', 'approve', 'cancel', 'feedback']).optional().describe('申請操作。（apply:申請する、approve:承認、cancel:取り消し、feedback:差戻し）'),
-  "update_at": zod.string().datetime({}).optional().describe('申請操作をした日付時間')
+  "update_at": zod.string().optional().describe('申請操作をした日付時間')
 })).describe('承認履歴'),
   "current_step_id": zod.number().min(1).max(getApprovalRequestsPaidHolidayResponsePaidHolidayCurrentStepIdMax).nullish().describe('現在承認ステップID<br>\n申請を差戻した場合、nullになります。'),
   "current_round": zod.number().min(getApprovalRequestsPaidHolidayResponsePaidHolidayCurrentRoundMin).max(getApprovalRequestsPaidHolidayResponsePaidHolidayCurrentRoundMax).describe('現在のround。差戻し等により申請がstepの最初からやり直しになるとroundの値が増えます。')
@@ -4321,7 +4321,7 @@ export const getApprovalRequestsPaidHolidayResponse = zod.object({
   "approval_flow_logs": zod.array(zod.object({
   "user_id": zod.number().min(getApprovalRequestsPaidHolidayResponsePaidHolidayApprovalFlowLogsItemUserIdMinOne).max(getApprovalRequestsPaidHolidayResponsePaidHolidayApprovalFlowLogsItemUserIdMaxOne).optional().describe('申請操作をしたユーザーのユーザーID'),
   "action": zod.enum(['apply', 'approve', 'cancel', 'feedback']).optional().describe('申請操作。（apply:申請する、approve:承認、cancel:取り消し、feedback:差戻し）'),
-  "update_at": zod.string().datetime({}).optional().describe('申請操作をした日付時間')
+  "update_at": zod.string().optional().describe('申請操作をした日付時間')
 })).describe('承認履歴'),
   "current_step_id": zod.number().min(1).max(getApprovalRequestsPaidHolidayResponsePaidHolidayCurrentStepIdMaxOne).nullish().describe('現在承認ステップID<br>\n申請を差戻した場合、nullになります。'),
   "current_round": zod.number().min(getApprovalRequestsPaidHolidayResponsePaidHolidayCurrentRoundMinOne).max(getApprovalRequestsPaidHolidayResponsePaidHolidayCurrentRoundMaxOne).describe('現在のround。差戻し等により申請がstepの最初からやり直しになるとroundの値が増えます。')
@@ -4435,7 +4435,7 @@ export const updateApprovalRequestsPaidHolidayResponse = zod.object({
   "approval_flow_logs": zod.array(zod.object({
   "user_id": zod.number().min(updateApprovalRequestsPaidHolidayResponsePaidHolidayApprovalFlowLogsItemUserIdMin).max(updateApprovalRequestsPaidHolidayResponsePaidHolidayApprovalFlowLogsItemUserIdMax).optional().describe('申請操作をしたユーザーのユーザーID'),
   "action": zod.enum(['apply', 'approve', 'cancel', 'feedback']).optional().describe('申請操作。（apply:申請する、approve:承認、cancel:取り消し、feedback:差戻し）'),
-  "update_at": zod.string().datetime({}).optional().describe('申請操作をした日付時間')
+  "update_at": zod.string().optional().describe('申請操作をした日付時間')
 })).describe('承認履歴'),
   "current_step_id": zod.number().min(1).max(updateApprovalRequestsPaidHolidayResponsePaidHolidayCurrentStepIdMax).nullish().describe('現在承認ステップID<br>\n申請を差戻した場合、nullになります。'),
   "current_round": zod.number().min(updateApprovalRequestsPaidHolidayResponsePaidHolidayCurrentRoundMin).max(updateApprovalRequestsPaidHolidayResponsePaidHolidayCurrentRoundMax).describe('現在のround。差戻し等により申請がstepの最初からやり直しになるとroundの値が増えます。')
@@ -4459,7 +4459,7 @@ export const updateApprovalRequestsPaidHolidayResponse = zod.object({
   "approval_flow_logs": zod.array(zod.object({
   "user_id": zod.number().min(updateApprovalRequestsPaidHolidayResponsePaidHolidayApprovalFlowLogsItemUserIdMinOne).max(updateApprovalRequestsPaidHolidayResponsePaidHolidayApprovalFlowLogsItemUserIdMaxOne).optional().describe('申請操作をしたユーザーのユーザーID'),
   "action": zod.enum(['apply', 'approve', 'cancel', 'feedback']).optional().describe('申請操作。（apply:申請する、approve:承認、cancel:取り消し、feedback:差戻し）'),
-  "update_at": zod.string().datetime({}).optional().describe('申請操作をした日付時間')
+  "update_at": zod.string().optional().describe('申請操作をした日付時間')
 })).describe('承認履歴'),
   "current_step_id": zod.number().min(1).max(updateApprovalRequestsPaidHolidayResponsePaidHolidayCurrentStepIdMaxOne).nullish().describe('現在承認ステップID<br>\n申請を差戻した場合、nullになります。'),
   "current_round": zod.number().min(updateApprovalRequestsPaidHolidayResponsePaidHolidayCurrentRoundMinOne).max(updateApprovalRequestsPaidHolidayResponsePaidHolidayCurrentRoundMaxOne).describe('現在のround。差戻し等により申請がstepの最初からやり直しになるとroundの値が増えます。')
@@ -4655,7 +4655,7 @@ export const getApprovalRequestsSpecialHolidayResponse = zod.object({
   "approval_flow_logs": zod.array(zod.object({
   "user_id": zod.number().min(getApprovalRequestsSpecialHolidayResponseSpecialHolidayApprovalFlowLogsItemUserIdMin).max(getApprovalRequestsSpecialHolidayResponseSpecialHolidayApprovalFlowLogsItemUserIdMax).optional().describe('申請操作をしたユーザーのユーザーID'),
   "action": zod.enum(['apply', 'approve', 'cancel', 'feedback']).optional().describe('申請操作。（apply:申請する、approve:承認、cancel:取り消し、feedback:差戻し）'),
-  "update_at": zod.string().datetime({}).optional().describe('申請操作をした日付時間')
+  "update_at": zod.string().optional().describe('申請操作をした日付時間')
 })).describe('承認履歴'),
   "current_step_id": zod.number().min(1).max(getApprovalRequestsSpecialHolidayResponseSpecialHolidayCurrentStepIdMax).nullish().describe('現在承認ステップID<br>\n申請を差戻した場合、nullになります。'),
   "current_round": zod.number().min(getApprovalRequestsSpecialHolidayResponseSpecialHolidayCurrentRoundMin).max(getApprovalRequestsSpecialHolidayResponseSpecialHolidayCurrentRoundMax).describe('現在のround。差戻し等により申請がstepの最初からやり直しになるとroundの値が増えます。')
@@ -4737,7 +4737,7 @@ export const updateApprovalRequestsSpecialHolidayResponse = zod.object({
   "approval_flow_logs": zod.array(zod.object({
   "user_id": zod.number().min(updateApprovalRequestsSpecialHolidayResponseSpecialHolidayApprovalFlowLogsItemUserIdMin).max(updateApprovalRequestsSpecialHolidayResponseSpecialHolidayApprovalFlowLogsItemUserIdMax).optional().describe('申請操作をしたユーザーのユーザーID'),
   "action": zod.enum(['apply', 'approve', 'cancel', 'feedback']).optional().describe('申請操作。（apply:申請する、approve:承認、cancel:取り消し、feedback:差戻し）'),
-  "update_at": zod.string().datetime({}).optional().describe('申請操作をした日付時間')
+  "update_at": zod.string().optional().describe('申請操作をした日付時間')
 })).describe('承認履歴'),
   "current_step_id": zod.number().min(1).max(updateApprovalRequestsSpecialHolidayResponseSpecialHolidayCurrentStepIdMax).nullish().describe('現在承認ステップID<br>\n申請を差戻した場合、nullになります。'),
   "current_round": zod.number().min(updateApprovalRequestsSpecialHolidayResponseSpecialHolidayCurrentRoundMin).max(updateApprovalRequestsSpecialHolidayResponseSpecialHolidayCurrentRoundMax).describe('現在のround。差戻し等により申請がstepの最初からやり直しになるとroundの値が増えます。')
@@ -4928,7 +4928,7 @@ export const getApprovalRequestsOvertimeWorkResponse = zod.object({
   "approval_flow_logs": zod.array(zod.object({
   "user_id": zod.number().min(getApprovalRequestsOvertimeWorkResponseOvertimeWorkApprovalFlowLogsItemUserIdMin).max(getApprovalRequestsOvertimeWorkResponseOvertimeWorkApprovalFlowLogsItemUserIdMax).optional().describe('申請操作をしたユーザーのユーザーID'),
   "action": zod.enum(['apply', 'approve', 'cancel', 'feedback']).optional().describe('申請操作。（apply:申請する、approve:承認、cancel:取り消し、feedback:差戻し）'),
-  "update_at": zod.string().datetime({}).optional().describe('申請操作をした日付時間')
+  "update_at": zod.string().optional().describe('申請操作をした日付時間')
 })).describe('承認履歴'),
   "current_step_id": zod.number().min(1).max(getApprovalRequestsOvertimeWorkResponseOvertimeWorkCurrentStepIdMax).nullish().describe('現在承認ステップID<br>\n申請を差戻した場合、nullになります。'),
   "current_round": zod.number().min(getApprovalRequestsOvertimeWorkResponseOvertimeWorkCurrentRoundMin).max(getApprovalRequestsOvertimeWorkResponseOvertimeWorkCurrentRoundMax).describe('現在のround。差戻し等により申請がstepの最初からやり直しになるとroundの値が増えます。')
@@ -5010,7 +5010,7 @@ export const updateApprovalRequestsOvertimeWorkResponse = zod.object({
   "approval_flow_logs": zod.array(zod.object({
   "user_id": zod.number().min(updateApprovalRequestsOvertimeWorkResponseOvertimeWorkApprovalFlowLogsItemUserIdMin).max(updateApprovalRequestsOvertimeWorkResponseOvertimeWorkApprovalFlowLogsItemUserIdMax).optional().describe('申請操作をしたユーザーのユーザーID'),
   "action": zod.enum(['apply', 'approve', 'cancel', 'feedback']).optional().describe('申請操作。（apply:申請する、approve:承認、cancel:取り消し、feedback:差戻し）'),
-  "update_at": zod.string().datetime({}).optional().describe('申請操作をした日付時間')
+  "update_at": zod.string().optional().describe('申請操作をした日付時間')
 })).describe('承認履歴'),
   "current_step_id": zod.number().min(1).max(updateApprovalRequestsOvertimeWorkResponseOvertimeWorkCurrentStepIdMax).nullish().describe('現在承認ステップID<br>\n申請を差戻した場合、nullになります。'),
   "current_round": zod.number().min(updateApprovalRequestsOvertimeWorkResponseOvertimeWorkCurrentRoundMin).max(updateApprovalRequestsOvertimeWorkResponseOvertimeWorkCurrentRoundMax).describe('現在のround。差戻し等により申請がstepの最初からやり直しになるとroundの値が増えます。')
@@ -5064,8 +5064,8 @@ export const getApprovalRequestsOvertimeWorkSettingQueryParams = zod.object({
 })
 
 export const getApprovalRequestsOvertimeWorkSettingResponse = zod.object({
-  "start_at": zod.string().datetime({}).optional().describe('所定出勤時刻'),
-  "end_at": zod.string().datetime({}).optional().describe('所定退勤時刻'),
+  "start_at": zod.string().optional().describe('所定出勤時刻'),
+  "end_at": zod.string().optional().describe('所定退勤時刻'),
   "should_reflect_in_work_record": zod.boolean().describe('勤務カレンダーに反映するかどうか'),
   "early_work_mins_unit": zod.array(zod.number()).optional().describe('早出に指定できる分の単位'),
   "overtime_work_mins_unit": zod.array(zod.number()).optional().describe('残業に指定できる分の単位')

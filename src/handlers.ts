@@ -362,7 +362,7 @@ export type getCompanyEmployeesArgs = {
 }
 
 export const getCompanyEmployeesHandler = async (args: getCompanyEmployeesArgs) => {
-  const res = await getCompanyEmployees(args.pathParams.companyId, args.queryParams);
+  const res = await getCompanyEmployees(args.pathParams.company_id, args.queryParams);
 
   return {
     content: [
@@ -548,7 +548,7 @@ export type getEmployeeProfileRuleArgs = {
 }
 
 export const getEmployeeProfileRuleHandler = async (args: getEmployeeProfileRuleArgs) => {
-  const res = await getEmployeeProfileRule(args.pathParams.employeeId, args.queryParams);
+  const res = await getEmployeeProfileRule(args.pathParams.employee_id, args.queryParams);
 
   return {
     content: [
@@ -579,7 +579,7 @@ export type updateEmployeeProfileRuleArgs = {
 }
 
 export const updateEmployeeProfileRuleHandler = async (args: updateEmployeeProfileRuleArgs) => {
-  const res = await updateEmployeeProfileRule(args.pathParams.employeeId, args.bodyParams);
+  const res = await updateEmployeeProfileRule(args.pathParams.employee_id, args.bodyParams);
 
   return {
     content: [
@@ -611,7 +611,7 @@ export type getEmployeeHealthInsuranceRuleArgs = {
 }
 
 export const getEmployeeHealthInsuranceRuleHandler = async (args: getEmployeeHealthInsuranceRuleArgs) => {
-  const res = await getEmployeeHealthInsuranceRule(args.pathParams.employeeId, args.queryParams);
+  const res = await getEmployeeHealthInsuranceRule(args.pathParams.employee_id, args.queryParams);
 
   return {
     content: [
@@ -645,7 +645,7 @@ export type updateEmployeeHealthInsuranceRuleArgs = {
 }
 
 export const updateEmployeeHealthInsuranceRuleHandler = async (args: updateEmployeeHealthInsuranceRuleArgs) => {
-  const res = await updateEmployeeHealthInsuranceRule(args.pathParams.employeeId, args.bodyParams);
+  const res = await updateEmployeeHealthInsuranceRule(args.pathParams.employee_id, args.bodyParams);
 
   return {
     content: [
@@ -677,7 +677,7 @@ export type getEmployeeWelfarePensionInsuranceRuleArgs = {
 }
 
 export const getEmployeeWelfarePensionInsuranceRuleHandler = async (args: getEmployeeWelfarePensionInsuranceRuleArgs) => {
-  const res = await getEmployeeWelfarePensionInsuranceRule(args.pathParams.employeeId, args.queryParams);
+  const res = await getEmployeeWelfarePensionInsuranceRule(args.pathParams.employee_id, args.queryParams);
 
   return {
     content: [
@@ -709,7 +709,7 @@ export type updateEmployeeWelfarePensionInsuranceRuleArgs = {
 }
 
 export const updateEmployeeWelfarePensionInsuranceRuleHandler = async (args: updateEmployeeWelfarePensionInsuranceRuleArgs) => {
-  const res = await updateEmployeeWelfarePensionInsuranceRule(args.pathParams.employeeId, args.bodyParams);
+  const res = await updateEmployeeWelfarePensionInsuranceRule(args.pathParams.employee_id, args.bodyParams);
 
   return {
     content: [
@@ -735,7 +735,7 @@ export type getEmployeeDependentRulesArgs = {
 }
 
 export const getEmployeeDependentRulesHandler = async (args: getEmployeeDependentRulesArgs) => {
-  const res = await getEmployeeDependentRules(args.pathParams.employeeId, args.queryParams);
+  const res = await getEmployeeDependentRules(args.pathParams.employee_id, args.queryParams);
 
   return {
     content: [
@@ -779,7 +779,7 @@ export type bulkUpdateEmployeeDependentRulesArgs = {
 }
 
 export const bulkUpdateEmployeeDependentRulesHandler = async (args: bulkUpdateEmployeeDependentRulesArgs) => {
-  const res = await bulkUpdateEmployeeDependentRules(args.pathParams.employeeId, args.bodyParams);
+  const res = await bulkUpdateEmployeeDependentRules(args.pathParams.employee_id, args.bodyParams);
 
   return {
     content: [
@@ -805,7 +805,7 @@ export type getEmployeeBankAccountRuleArgs = {
 }
 
 export const getEmployeeBankAccountRuleHandler = async (args: getEmployeeBankAccountRuleArgs) => {
-  const res = await getEmployeeBankAccountRule(args.pathParams.employeeId, args.queryParams);
+  const res = await getEmployeeBankAccountRule(args.pathParams.employee_id, args.queryParams);
 
   return {
     content: [
@@ -831,7 +831,7 @@ export type updateEmployeeBankAccountRuleArgs = {
 }
 
 export const updateEmployeeBankAccountRuleHandler = async (args: updateEmployeeBankAccountRuleArgs) => {
-  const res = await updateEmployeeBankAccountRule(args.pathParams.employeeId, args.bodyParams);
+  const res = await updateEmployeeBankAccountRule(args.pathParams.employee_id, args.bodyParams);
 
   return {
     content: [
@@ -862,7 +862,7 @@ export type getEmployeeBasicPayRuleArgs = {
 }
 
 export const getEmployeeBasicPayRuleHandler = async (args: getEmployeeBasicPayRuleArgs) => {
-  const res = await getEmployeeBasicPayRule(args.pathParams.employeeId, args.queryParams);
+  const res = await getEmployeeBasicPayRule(args.pathParams.employee_id, args.queryParams);
 
   return {
     content: [
@@ -893,7 +893,7 @@ export type updateEmployeeBasicPayRuleArgs = {
 }
 
 export const updateEmployeeBasicPayRuleHandler = async (args: updateEmployeeBasicPayRuleArgs) => {
-  const res = await updateEmployeeBasicPayRule(args.pathParams.employeeId, args.bodyParams);
+  const res = await updateEmployeeBasicPayRule(args.pathParams.employee_id, args.bodyParams);
 
   return {
     content: [
@@ -925,7 +925,7 @@ export type getEmployeeProfileCustomFieldsRuleArgs = {
 }
 
 export const getEmployeeProfileCustomFieldsRuleHandler = async (args: getEmployeeProfileCustomFieldsRuleArgs) => {
-  const res = await getEmployeeProfileCustomFieldsRule(args.pathParams.employeeId, args.queryParams);
+  const res = await getEmployeeProfileCustomFieldsRule(args.pathParams.employee_id, args.queryParams);
 
   return {
     content: [
@@ -952,7 +952,7 @@ export type getEmployeeWorkRecordArgs = {
 }
 
 export const getEmployeeWorkRecordHandler = async (args: getEmployeeWorkRecordArgs) => {
-  const res = await getEmployeeWorkRecord(args.pathParams.employeeId, args.pathParams.date, args.queryParams);
+  const res = await getEmployeeWorkRecord(args.pathParams.employee_id, args.pathParams.date, args.queryParams);
 
   return {
     content: [
@@ -1194,7 +1194,7 @@ export type updateEmployeeWorkRecordArgs = {
 }
 
 export const updateEmployeeWorkRecordHandler = async (args: updateEmployeeWorkRecordArgs) => {
-  const res = await updateEmployeeWorkRecord(args.pathParams.employeeId, args.pathParams.date, args.bodyParams);
+  const res = await updateEmployeeWorkRecord(args.pathParams.employee_id, args.pathParams.date, args.bodyParams);
 
   return {
     content: [
@@ -1221,7 +1221,7 @@ export type destroyEmployeeWorkRecordArgs = {
 }
 
 export const destroyEmployeeWorkRecordHandler = async (args: destroyEmployeeWorkRecordArgs) => {
-  const res = await destroyEmployeeWorkRecord(args.pathParams.employeeId, args.pathParams.date, args.queryParams);
+  const res = await destroyEmployeeWorkRecord(args.pathParams.employee_id, args.pathParams.date, args.queryParams);
 
   return {
     content: [
@@ -1254,7 +1254,7 @@ export type getEmployeeWorkRecordSummaryArgs = {
 }
 
 export const getEmployeeWorkRecordSummaryHandler = async (args: getEmployeeWorkRecordSummaryArgs) => {
-  const res = await getEmployeeWorkRecordSummary(args.pathParams.employeeId, args.pathParams.year, args.pathParams.month, args.queryParams);
+  const res = await getEmployeeWorkRecordSummary(args.pathParams.employee_id, args.pathParams.year, args.pathParams.month, args.queryParams);
 
   return {
     content: [
@@ -1290,7 +1290,7 @@ export type updateEmployeeWorkRecordSummaryArgs = {
 }
 
 export const updateEmployeeWorkRecordSummaryHandler = async (args: updateEmployeeWorkRecordSummaryArgs) => {
-  const res = await updateEmployeeWorkRecordSummary(args.pathParams.employeeId, args.pathParams.year, args.pathParams.month, args.bodyParams);
+  const res = await updateEmployeeWorkRecordSummary(args.pathParams.employee_id, args.pathParams.year, args.pathParams.month, args.bodyParams);
 
   return {
     content: [
@@ -1316,7 +1316,7 @@ export type getEmployeeTimeClocksArgs = {
 }
 
 export const getEmployeeTimeClocksHandler = async (args: getEmployeeTimeClocksArgs) => {
-  const res = await getEmployeeTimeClocks(args.pathParams.employeeId, args.queryParams);
+  const res = await getEmployeeTimeClocks(args.pathParams.employee_id, args.queryParams);
 
   return {
     content: [
@@ -1364,7 +1364,7 @@ export type createEmployeeTimeClockArgs = {
 }
 
 export const createEmployeeTimeClockHandler = async (args: createEmployeeTimeClockArgs) => {
-  const res = await createEmployeeTimeClock(args.pathParams.employeeId, args.bodyParams);
+  const res = await createEmployeeTimeClock(args.pathParams.employee_id, args.bodyParams);
 
   return {
     content: [
@@ -1391,7 +1391,7 @@ export type getEmployeeTimeClockArgs = {
 }
 
 export const getEmployeeTimeClockHandler = async (args: getEmployeeTimeClockArgs) => {
-  const res = await getEmployeeTimeClock(args.pathParams.employeeId, args.pathParams.id, args.queryParams);
+  const res = await getEmployeeTimeClock(args.pathParams.employee_id, args.pathParams.id, args.queryParams);
 
   return {
     content: [
@@ -1418,7 +1418,7 @@ export type getEmployeeTimeClocksAvailableTypesArgs = {
 }
 
 export const getEmployeeTimeClocksAvailableTypesHandler = async (args: getEmployeeTimeClocksAvailableTypesArgs) => {
-  const res = await getEmployeeTimeClocksAvailableTypes(args.pathParams.employeeId, args.queryParams);
+  const res = await getEmployeeTimeClocksAvailableTypes(args.pathParams.employee_id, args.queryParams);
 
   return {
     content: [
@@ -1444,7 +1444,7 @@ export type getEmployeesSpecialHolidaysArgs = {
 }
 
 export const getEmployeesSpecialHolidaysHandler = async (args: getEmployeesSpecialHolidaysArgs) => {
-  const res = await getEmployeesSpecialHolidays(args.pathParams.employeeId, args.queryParams);
+  const res = await getEmployeesSpecialHolidays(args.pathParams.employee_id, args.queryParams);
 
   return {
     content: [
@@ -1475,7 +1475,7 @@ export type getEmployeesAttendanceTagSummariesArgs = {
 }
 
 export const getEmployeesAttendanceTagSummariesHandler = async (args: getEmployeesAttendanceTagSummariesArgs) => {
-  const res = await getEmployeesAttendanceTagSummaries(args.pathParams.employeeId, args.pathParams.year, args.pathParams.month, args.queryParams);
+  const res = await getEmployeesAttendanceTagSummaries(args.pathParams.employee_id, args.pathParams.year, args.pathParams.month, args.queryParams);
 
   return {
     content: [
@@ -1513,7 +1513,7 @@ export type updateEmployeesAttendanceTagSummariesArgs = {
 }
 
 export const updateEmployeesAttendanceTagSummariesHandler = async (args: updateEmployeesAttendanceTagSummariesArgs) => {
-  const res = await updateEmployeesAttendanceTagSummaries(args.pathParams.employeeId, args.pathParams.year, args.pathParams.month, args.bodyParams);
+  const res = await updateEmployeesAttendanceTagSummaries(args.pathParams.employee_id, args.pathParams.year, args.pathParams.month, args.bodyParams);
 
   return {
     content: [
@@ -1539,7 +1539,7 @@ export type getEmployeesAttendanceTagsArgs = {
 }
 
 export const getEmployeesAttendanceTagsHandler = async (args: getEmployeesAttendanceTagsArgs) => {
-  const res = await getEmployeesAttendanceTags(args.pathParams.employeeId, args.queryParams);
+  const res = await getEmployeesAttendanceTags(args.pathParams.employee_id, args.queryParams);
 
   return {
     content: [
@@ -1566,7 +1566,7 @@ export type getEmployeesAttendanceTagsByDateArgs = {
 }
 
 export const getEmployeesAttendanceTagsByDateHandler = async (args: getEmployeesAttendanceTagsByDateArgs) => {
-  const res = await getEmployeesAttendanceTagsByDate(args.pathParams.employeeId, args.pathParams.date, args.queryParams);
+  const res = await getEmployeesAttendanceTagsByDate(args.pathParams.employee_id, args.pathParams.date, args.queryParams);
 
   return {
     content: [
@@ -1599,7 +1599,7 @@ export type updateEmployeesAttendanceTagsArgs = {
 }
 
 export const updateEmployeesAttendanceTagsHandler = async (args: updateEmployeesAttendanceTagsArgs) => {
-  const res = await updateEmployeesAttendanceTags(args.pathParams.employeeId, args.pathParams.date, args.bodyParams);
+  const res = await updateEmployeesAttendanceTags(args.pathParams.employee_id, args.pathParams.date, args.bodyParams);
 
   return {
     content: [
@@ -1714,7 +1714,7 @@ export type getSalariesEmployeePayrollStatementArgs = {
 }
 
 export const getSalariesEmployeePayrollStatementHandler = async (args: getSalariesEmployeePayrollStatementArgs) => {
-  const res = await getSalariesEmployeePayrollStatement(args.pathParams.employeeId, args.queryParams);
+  const res = await getSalariesEmployeePayrollStatement(args.pathParams.employee_id, args.queryParams);
 
   return {
     content: [
@@ -1805,7 +1805,7 @@ export type getBonusesEmployeePayrollStatementArgs = {
 }
 
 export const getBonusesEmployeePayrollStatementHandler = async (args: getBonusesEmployeePayrollStatementArgs) => {
-  const res = await getBonusesEmployeePayrollStatement(args.pathParams.employeeId, args.queryParams);
+  const res = await getBonusesEmployeePayrollStatement(args.pathParams.employee_id, args.queryParams);
 
   return {
     content: [
@@ -3498,7 +3498,7 @@ export type getYearendAdjustmentEmployeeArgs = {
 }
 
 export const getYearendAdjustmentEmployeeHandler = async (args: getYearendAdjustmentEmployeeArgs) => {
-  const res = await getYearendAdjustmentEmployee(args.pathParams.year, args.pathParams.employeeId, args.queryParams);
+  const res = await getYearendAdjustmentEmployee(args.pathParams.year, args.pathParams.employee_id, args.queryParams);
 
   return {
     content: [
@@ -3530,7 +3530,7 @@ export type putYearendAdjustmentEmployeeArgs = {
 }
 
 export const putYearendAdjustmentEmployeeHandler = async (args: putYearendAdjustmentEmployeeArgs) => {
-  const res = await putYearendAdjustmentEmployee(args.pathParams.year, args.pathParams.employeeId, args.bodyParams);
+  const res = await putYearendAdjustmentEmployee(args.pathParams.year, args.pathParams.employee_id, args.bodyParams);
 
   return {
     content: [
@@ -3562,7 +3562,7 @@ export type putYearendAdjustmentPayrollAndBonusArgs = {
 }
 
 export const putYearendAdjustmentPayrollAndBonusHandler = async (args: putYearendAdjustmentPayrollAndBonusArgs) => {
-  const res = await putYearendAdjustmentPayrollAndBonus(args.pathParams.year, args.pathParams.employeeId, args.bodyParams);
+  const res = await putYearendAdjustmentPayrollAndBonus(args.pathParams.year, args.pathParams.employee_id, args.bodyParams);
 
   return {
     content: [
@@ -3594,7 +3594,7 @@ export type putYearendAdjustmentDependentsArgs = {
 }
 
 export const putYearendAdjustmentDependentsHandler = async (args: putYearendAdjustmentDependentsArgs) => {
-  const res = await putYearendAdjustmentDependents(args.pathParams.year, args.pathParams.employeeId, args.bodyParams);
+  const res = await putYearendAdjustmentDependents(args.pathParams.year, args.pathParams.employee_id, args.bodyParams);
 
   return {
     content: [
@@ -3626,7 +3626,7 @@ export type putYearendAdjustmentPreviousJobArgs = {
 }
 
 export const putYearendAdjustmentPreviousJobHandler = async (args: putYearendAdjustmentPreviousJobArgs) => {
-  const res = await putYearendAdjustmentPreviousJob(args.pathParams.year, args.pathParams.employeeId, args.bodyParams);
+  const res = await putYearendAdjustmentPreviousJob(args.pathParams.year, args.pathParams.employee_id, args.bodyParams);
 
   return {
     content: [
@@ -3658,7 +3658,7 @@ export type destroyYearendAdjustmentPreviousJobArgs = {
 }
 
 export const destroyYearendAdjustmentPreviousJobHandler = async (args: destroyYearendAdjustmentPreviousJobArgs) => {
-  const res = await destroyYearendAdjustmentPreviousJob(args.pathParams.year, args.pathParams.employeeId, args.queryParams);
+  const res = await destroyYearendAdjustmentPreviousJob(args.pathParams.year, args.pathParams.employee_id, args.queryParams);
 
   return {
     content: [
@@ -3689,7 +3689,7 @@ export type postYearendAdjustmentInsurancesArgs = {
 }
 
 export const postYearendAdjustmentInsurancesHandler = async (args: postYearendAdjustmentInsurancesArgs) => {
-  const res = await postYearendAdjustmentInsurances(args.pathParams.year, args.pathParams.employeeId, args.bodyParams);
+  const res = await postYearendAdjustmentInsurances(args.pathParams.year, args.pathParams.employee_id, args.bodyParams);
 
   return {
     content: [
@@ -3722,7 +3722,7 @@ export type putYearendAdjustmentInsurancesArgs = {
 }
 
 export const putYearendAdjustmentInsurancesHandler = async (args: putYearendAdjustmentInsurancesArgs) => {
-  const res = await putYearendAdjustmentInsurances(args.pathParams.year, args.pathParams.employeeId, args.pathParams.id, args.bodyParams);
+  const res = await putYearendAdjustmentInsurances(args.pathParams.year, args.pathParams.employee_id, args.pathParams.id, args.bodyParams);
 
   return {
     content: [
@@ -3754,7 +3754,7 @@ export type destroyYearendAdjustmentInsurancesArgs = {
 }
 
 export const destroyYearendAdjustmentInsurancesHandler = async (args: destroyYearendAdjustmentInsurancesArgs) => {
-  const res = await destroyYearendAdjustmentInsurances(args.pathParams.year, args.pathParams.employeeId, args.pathParams.id, args.queryParams);
+  const res = await destroyYearendAdjustmentInsurances(args.pathParams.year, args.pathParams.employee_id, args.pathParams.id, args.queryParams);
 
   return {
     content: [
@@ -3785,7 +3785,7 @@ export type putYearendAdjustmentHousingLoanDeductionArgs = {
 }
 
 export const putYearendAdjustmentHousingLoanDeductionHandler = async (args: putYearendAdjustmentHousingLoanDeductionArgs) => {
-  const res = await putYearendAdjustmentHousingLoanDeduction(args.pathParams.year, args.pathParams.employeeId, args.bodyParams);
+  const res = await putYearendAdjustmentHousingLoanDeduction(args.pathParams.year, args.pathParams.employee_id, args.bodyParams);
 
   return {
     content: [
@@ -3816,7 +3816,7 @@ export type postYearendAdjustmentHousingLoanArgs = {
 }
 
 export const postYearendAdjustmentHousingLoanHandler = async (args: postYearendAdjustmentHousingLoanArgs) => {
-  const res = await postYearendAdjustmentHousingLoan(args.pathParams.year, args.pathParams.employeeId, args.bodyParams);
+  const res = await postYearendAdjustmentHousingLoan(args.pathParams.year, args.pathParams.employee_id, args.bodyParams);
 
   return {
     content: [
@@ -3848,7 +3848,7 @@ export type putYearendAdjustmentHousingLoanArgs = {
 }
 
 export const putYearendAdjustmentHousingLoanHandler = async (args: putYearendAdjustmentHousingLoanArgs) => {
-  const res = await putYearendAdjustmentHousingLoan(args.pathParams.year, args.pathParams.employeeId, args.pathParams.id, args.bodyParams);
+  const res = await putYearendAdjustmentHousingLoan(args.pathParams.year, args.pathParams.employee_id, args.pathParams.id, args.bodyParams);
 
   return {
     content: [
@@ -3880,7 +3880,7 @@ export type destroyYearendAdjustmentHousingLoanArgs = {
 }
 
 export const destroyYearendAdjustmentHousingLoanHandler = async (args: destroyYearendAdjustmentHousingLoanArgs) => {
-  const res = await destroyYearendAdjustmentHousingLoan(args.pathParams.year, args.pathParams.employeeId, args.pathParams.id, args.queryParams);
+  const res = await destroyYearendAdjustmentHousingLoan(args.pathParams.year, args.pathParams.employee_id, args.pathParams.id, args.queryParams);
 
   return {
     content: [

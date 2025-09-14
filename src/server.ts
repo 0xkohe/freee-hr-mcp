@@ -1331,4 +1331,5 @@ const transport = new StdioServerTransport();
 
 server.connect(transport).then(() => {
   console.error('MCP server running on stdio');
+  console.error('Request logging is enabled for all API calls');
 }).catch(console.error);

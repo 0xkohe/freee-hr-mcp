@@ -21,9 +21,23 @@ export const customFetch = async <T>(
     'Accept': 'application/json',
   };
 
+  // Fix undefined path parameters
+  let processedUrl = url;
+
+  // Replace company_id undefined with environment variable
+  if (processedUrl.includes('/companies/undefined')) {
+    processedUrl = processedUrl.replace(/\/companies\/undefined/g, `/companies/${companyId}`);
+  }
+
+  // Check for other undefined path parameters and throw error
+  if (processedUrl.includes('/undefined')) {
+    console.log('URL contains undefined path parameter:', processedUrl);
+    throw new Error(`URL contains undefined path parameter: ${processedUrl}. Please check that all required parameters are provided.`);
+  }
+
   const axiosConfig: AxiosRequestConfig = {
     ...options,
-    url,
+    url: processedUrl,
     headers: {
       ...defaultHeaders,
       ...options.headers,

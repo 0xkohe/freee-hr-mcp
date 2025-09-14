@@ -120,7 +120,6 @@ X-Ratelimit-Reset:2018-01-01T12:00:00.000000Z
 <hr />
  * OpenAPI spec version: 2022-02-01
  */
-import { customFetch } from './custom-fetch';
 
 import { ApiV1UsersMeSerializer,
 Error,
@@ -276,6 +275,7 @@ PutYearendAdjustmentHousingLoanDeductionBody,
 ApiV1EmployeeYearendAdjustmentControllerUpdateHousingLoanResponse,
 ApiV1EmployeeYearendAdjustmentControllerUpdateHousingLoanBody,
 DestroyYearendAdjustmentHousingLoanParams } from './http-schemas';
+import { customFetch } from './custom-fetch';
 
 export type getUsersMeResponse200 = {
   data: ApiV1UsersMeSerializer

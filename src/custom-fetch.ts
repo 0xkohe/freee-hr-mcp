@@ -35,7 +35,28 @@ export const customFetch = async <T>(
     },
   };
 
+  // Log detailed request information
+  console.log('=== MCP Request Details ===');
+  console.log('Timestamp:', new Date().toISOString());
+  console.log('Method:', axiosConfig.method || 'GET');
+  console.log('URL:', axiosConfig.url);
+  console.log('Headers:', JSON.stringify(axiosConfig.headers, null, 2));
+  console.log('Query Parameters:', JSON.stringify(axiosConfig.params, null, 2));
+
+  if (axiosConfig.data) {
+    console.log('Request Body:', JSON.stringify(axiosConfig.data, null, 2));
+  }
+
+  console.log('========================');
+
   const response = await axios(axiosConfig);
+
+  // Log response details
+  console.log('=== MCP Response Details ===');
+  console.log('Status:', response.status, response.statusText);
+  console.log('Response Headers:', JSON.stringify(response.headers, null, 2));
+  console.log('Response Data:', JSON.stringify(response.data, null, 2));
+  console.log('=========================');
 
   // Return a clean response object without circular references
   return {

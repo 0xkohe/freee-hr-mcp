@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 export const customFetch = async <T>(
   url: string,
-  options: AxiosRequestConfig = {}
+  options: AxiosRequestConfig & { body?: any } = {}
 ): Promise<AxiosResponse<T>> => {
   const accessToken = process.env.FREEE_HR_ACCESS_TOKEN;
   const companyId = process.env.FREEE_HR_COMPANY_ID;
@@ -47,6 +47,8 @@ export const customFetch = async <T>(
       company_id: companyId,
       ...options.params,
     },
+    // Convert body to data for Axios (handle both 'body' from fetch API and 'data' from Axios)
+    data: options.body ? JSON.parse(options.body) : options.data,
   };
 
   // Log detailed request information

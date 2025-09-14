@@ -68,7 +68,7 @@ npm start
   "mcpServers": {
     "freee-hr": {
       "command": "node",
-      "args": ["/path/to/freee-mcp2/dist/server.js"],
+      "args": ["/path/to/freee-hr-mcp/dist/server.js"],
       "env": {
         "FREEE_HR_ACCESS_TOKEN": "your_access_token_here",
         "FREEE_HR_COMPANY_ID": "your_company_id_here"

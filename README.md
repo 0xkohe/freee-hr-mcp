@@ -195,6 +195,16 @@ Claude Desktopで以下のような操作が可能です：
 
 ## 開発者向け情報
 
+### OpenAPIスキーマの更新
+
+freeeの最新APIスキーマを取得：
+
+```bash
+npm run update-schema
+```
+
+このコマンドは、freeeの公式GitHubリポジトリから最新のOpenAPIスキーマをダウンロードします。
+
 ### コード生成
 
 OpenAPIスペックから最新のコードを生成：
@@ -207,6 +217,19 @@ npm run generate
 1. Orvalによるコード生成
 2. post-generateスクリプトの実行
 3. datetime修正スクリプトの実行（`.datetime()`呼び出しの自動削除）
+
+### スキーマ更新とコード生成を一括実行
+
+最新のAPIスキーマを取得してコードを再生成：
+
+```bash
+npm run update-and-generate
+```
+
+このコマンドは以下を順番に実行します：
+1. 最新のOpenAPIスキーマをダウンロード
+2. Orvalでコードを生成
+3. 生成後の処理を実行
 
 ### プロジェクト構造
 
@@ -222,7 +245,8 @@ freee-mcp2/
 ├── openapi/
 │   └── freee-hr.json      # freee人事労務のOpenAPIスペック
 ├── scripts/
-│   └── post-generate.js   # 生成後の処理スクリプト
+│   ├── post-generate.js   # 生成後の処理スクリプト
+│   └── update-openapi-schema.sh # OpenAPIスキーマ更新スクリプト
 ├── fix-datetime.js        # datetime修正スクリプト
 └── orval.config.mjs       # Orval設定ファイル
 ```

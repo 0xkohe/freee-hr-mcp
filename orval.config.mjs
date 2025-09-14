@@ -12,7 +12,7 @@ export default defineConfig({
       schemas: 'src/http-schemas',
       override: {
         // 認証や共通ヘッダー注入のためにカスタム fetch を差し込む
-	      mutator: { path: './src/custom-fetch.ts', name: 'customFetch'  }
+        mutator: { path: './src/custom-fetch.ts', name: 'customFetch' }
       }
     }
   }

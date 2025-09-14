@@ -1,0 +1,25 @@
+{
+	"servers": {
+		"freee-hr-mcp": {
+			"type": "stdio",
+			"command": "node",
+			"args": ["dist/server.js"],
+			"env": {
+				"FREEE_HR_ACCESS_TOKEN": "${input:FREEE_HR_ACCESS_TOKEN}",
+				"FREEE_HR_COMPANY_ID": "${input:FREEE_HR_COMPANY_ID}"
+			}
+		},
+	},
+	"inputs": [
+		{
+			"id": "FREEE_HR_ACCESS_TOKEN",
+			"type": "promptString",
+			"description": "freee access token"
+		},
+		{
+			"id": "FREEE_HR_COMPANY_ID",
+			"type": "promptString",
+			"description": "freee company_id"
+		}
+	]
+}
